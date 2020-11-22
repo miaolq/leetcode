@@ -62,23 +62,37 @@
  *
  */
 
+// 暴力解法
+// var maxArea = function (height) {
+//     const n = height.length
+//     if (n <= 1) {
+//       return 0
+//     }
+//     let max = 0
+//     for (let i = 1; i < n; i += 1) {
+//       for (let j = 0; j < i; j += 1) {
+//         const num = Math.min(height[j], height[i]) * (i - j)
+//         num > max && (max = num)
+//       }
+//     }
+//     return max
+//   }
+
 // @lc code=start
 /**
  * @param {number[]} height
  * @return {number}
  */
+
+// 左右双指针，向中间收敛
 var maxArea = function (height) {
-  const n = height.length
-  if (n <= 1) {
-    return 0
-  }
   let max = 0
-  for (let i = 1; i < n; i += 1) {
-    for (let j = 0; j < i; j += 1) {
-      const num = Math.min(height[j], height[i]) * (i - j)
-      num > max && (max = num)
-    }
+  for (let i = 0, j = height.length - 1; i < j; ) {
+    const num = Math.min(height[i], height[j]) * (j - i)
+    max = Math.max(num, max)
+    height[i] > height[j] ? --j : ++i
   }
   return max
 }
+
 // @lc code=end
