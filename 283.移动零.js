@@ -29,24 +29,54 @@
  *
  */
 
+// solu1: 滚雪球法/ 滑标法
+// var moveZeroes = function (nums) {
+//   const zeros = []
+//   for (let i = 0; i < nums.length; i += 1) {
+//     if (nums[i] === 0) {
+//       zeros.push(i)
+//     } else if (zeros.length > 0) {
+//       const m = zeros[0]
+//       zeros.shift() // dont forget
+//       zeros.push(i) // dont forget
+//       nums[m] = nums[i]
+//       nums[i] = 0
+//     }
+//   }
+//   return nums
+// }
+
+// solu2: 将所有非0，前移。 剩余的填0（如果不是0的话，可以用一个数组存起来）
+// var moveZeroes = function (nums) {
+//   let noZeroI = 0
+//   for (let num of nums) {
+//     if (num !== 0) {
+//       nums[noZeroI++] = num
+//     }
+//   }
+//   while (noZeroI < nums.length) {
+//     nums[noZeroI++] = 0
+//   }
+//   return nums
+// }
+
 // @lc code=start
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+
+// solu3:
 var moveZeroes = function (nums) {
-  const zeros = []
-  for (let i = 0; i < nums.length; i += 1) {
-    if (nums[i] === 0) {
-      zeros.push(i)
-    } else if (zeros.length > 0) {
-      const m = zeros[0]
-      zeros.shift() // dont forget
-      zeros.push(i) // dont forget
-      nums[m] = nums[i]
-      nums[i] = 0
+  for (let lastNonZeroIndex = 0, i = 0; i < nums.length; i += 1) {
+    if (nums[i] !== 0) {
+      const mid = nums[lastNonZeroIndex]
+      nums[lastNonZeroIndex] = nums[i]
+      lastNonZeroIndex++
+      nums[i] = mid
     }
   }
   return nums
 }
+
 // @lc code=end
