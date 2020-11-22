@@ -37,20 +37,12 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
+  s = s.toLowerCase()
+  s = s.replaceAll(/[^a-z0-9]/gi, '')
   let i = 0,
     j = s.length - 1
   while (i < j) {
-    const strI = s.charAt(i).toLowerCase()
-    if (!/[0-9a-z]/i.test(strI)) {
-      i += 1
-      continue
-    }
-    const strJ = s.charAt(j).toLowerCase()
-    if (!/[0-9a-z]/i.test(strJ)) {
-      j -= 1
-      continue
-    }
-    if (strI !== strJ) {
+    if (s.charAt(i) !== s.charAt(j)) {
       return false
     }
     i += 1
