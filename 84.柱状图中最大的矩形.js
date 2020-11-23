@@ -50,6 +50,7 @@ var largestRectangleArea = function (heights) {
     let minH = Number.MAX_SAFE_INTEGER
     for (let j = i; j < length; ++j) {
       minH = Math.min(minH, heights[j])
+      //  const minH = Math.min(...heights.slice(i,j+1)) // 性能不好。 toknow。 把之前最小的记录下来。
       max = Math.max(minH * (j - i + 1), max)
     }
   }
