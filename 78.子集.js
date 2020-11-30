@@ -39,18 +39,34 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+// var subsets = function (nums) {
+//   let res = [[]]
+//   for (let i = 0; i < nums.length; ++i) {
+//     const resLength = res.length
+//     for (let j = 0; j < resLength; ++j) {
+//       const temp = [...res[j]]
+//       temp.push(nums[i])
+//       console.log('tep', temp)
+//       res.push(temp)
+//       console.log(res)
+//     }
+//   }
+//   console.log(res)
+//   return res
+// }
 var subsets = function (nums) {
-  let res = [[]]
-  for (let i = 0; i < nums.length; ++i) {
-    const resLength = res.length
-    for (let j = 0; j < resLength; ++j) {
-      const temp = [...res[j]]
-      temp.push(nums[i])
-      console.log('tep', temp)
-      res.push(temp)
-      console.log(res)
+  let res = []
+  function dfs(line = [], index) {
+    if (index === nums.length) {
+      // 每条line是一种可能
+      res.push(line)
+      return
     }
+    dfs(line, index + 1)
+    dfs(line.concat(nums[index]), index + 1)
   }
+
+  dfs([], 0)
   console.log(res)
   return res
 }
