@@ -1,0 +1,27 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "leetcode/算法相关",
+  "main": "index.js",
+  "scripts": {
+    "start": "./push.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaolq/.leetcode.git"
+  },
+  "author": "miaolq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miaolq/.leetcode/issues"
+  },
+  "homepage": "https://github.com/miaolq/.leetcode#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
